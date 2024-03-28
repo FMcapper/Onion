@@ -624,8 +624,7 @@ void menu_wifi(void *_)
 void menu_network(void *_)
 {
     if (!_menu_network._created) {
-        _menu_network = list_createWithSticky(9, LIST_SMALL);
-        strcpy(_menu_network.title, "Network");
+        _menu_network = list_createWithSticky(9, "Network");
 
         network_loadState();
 
