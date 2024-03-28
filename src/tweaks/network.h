@@ -726,7 +726,7 @@ void menu_network(void *_)
                                  "This helps to conserve battery and\n"
                                  "to keep performance at a maximum.");
     }
-    strcpy(_menu_network.items[0].sticky_note, ip_address_label);
+    list_updateStickyNote(_menu_network.items[0].sticky_note, ip_address_label);
     menu_stack[++menu_level] = &_menu_network;
     header_changed = true;
 }
