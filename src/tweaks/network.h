@@ -629,7 +629,7 @@ void menu_network(void *_)
 
         network_loadState();
 
-        list_addItemWithInfoNote(&_menu_network,
+        list_addItem(&_menu_network,
                      (ListItem){
                          .label = "IP",
                          .sticky_note = "IP address: N/A",
