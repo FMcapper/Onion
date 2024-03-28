@@ -624,14 +624,15 @@ void menu_wifi(void *_)
 void menu_network(void *_)
 {
     if (!_menu_network._created) {
-        _menu_network = list_create(9, LIST_SMALL);
+        _menu_network = list_createWithSticky(9, LIST_SMALL);
         strcpy(_menu_network.title, "Network");
 
         network_loadState();
 
-        list_addItem(&_menu_network,
+        list_addItemWithInfoNote(&_menu_network,
                      (ListItem){
-                         .label = "IP address: N/A",
+                         .label = "IP",
+                         .sticky_note = "IP address: N/A",
                          .disabled = true,
                          .action = NULL});
         list_addItem(&_menu_network,
@@ -726,7 +727,7 @@ void menu_network(void *_)
                                  "This helps to conserve battery and\n"
                                  "to keep performance at a maximum.");
     }
-    strcpy(_menu_network.items[0].label, ip_address_label);
+    strcpy(_menu_network.items[0].sticky_note, ip_address_label);
     menu_stack[++menu_level] = &_menu_network;
     header_changed = true;
 }
